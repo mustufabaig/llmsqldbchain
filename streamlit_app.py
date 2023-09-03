@@ -18,4 +18,5 @@ llm = OpenAI(temperature=0, verbose=True)
 
 db_chain = SQLDatabaseChain(llm=llm, database=db, verbose=True)
 
-db_chain.run("How many employees are there?")
+answer = db_chain.run("How many employees are there?")
+st.write(answer)
