@@ -18,5 +18,10 @@ llm = OpenAI(temperature=0, verbose=True)
 
 db_chain = SQLDatabaseChain(llm=llm, database=db, verbose=True)
 
-answer = db_chain.run("How many employees are there?")
-st.write(answer)
+prompt = st.chat_input("How can I help you?")
+if prompt:
+    with st.spinner('Looking for answers...'):
+        answer = db_chain.run("How many employees are there?")
+        with st.chat_message("assistant"):
+            st.write("here is what I have found...")
+            st.info(answer);
