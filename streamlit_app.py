@@ -9,4 +9,5 @@ db = SQLDatabase.from_uri(snowflake_url,sample_rows_in_table_info=1, include_tab
 # llm = OpenAI(temperature=0) # using the following code to cache with gptcache
 llm = LangChainLLMs(llm=OpenAI(temperature=0), session=session)
 
+db_chain = SQLDatabaseChain(llm=llm, database=db, verbose=True)
 
