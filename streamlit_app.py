@@ -43,8 +43,9 @@ db_chain = SQLDatabaseChain(llm=llm, database=db, prompt=PROMPT, verbose=True, r
 question = st.chat_input("How can I help you?")
 if question:
     with st.spinner('Looking for answers...'):
-        answer = db_chain.run(question)
+        #answer = db_chain.run(question)
+        answer = db_chain(question)
         with st.chat_message("assistant"):
             st.write("here is what I have found...")
-            st.info(answer);
+            #st.info(answer);
             st.info(answer["intermediate_steps"])
