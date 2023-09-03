@@ -18,5 +18,5 @@ llm = OpenAI(temperature=0, verbose=True)
 
 db_chain = SQLDatabaseChain(llm=llm, database=db, verbose=True)
 
-answer = db_chain.run("How many merchants are there?")
+answer = db_chain.run("Show me all the merchants")
 st.write(answer)
