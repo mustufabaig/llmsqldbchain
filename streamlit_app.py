@@ -1,5 +1,6 @@
 import streamlit as st
-from langchain import OpenAI, SQLDatabase, SQLDatabaseChain
+from langchain import OpenAI, SQLDatabase
+from langchain_experimental.sql import SQLDatabaseChain
 
 from gptcache.adapter.langchain_models import LangChainLLMs
 from gptcache.session import Session
