@@ -5,6 +5,10 @@ from langchain import OpenAI, SQLDatabase
 from langchain_experimental.sql import SQLDatabaseChain
 from langchain.prompts.prompt import PromptTemplate
 
+#setting streamlit properties
+st.set_page_config(layout="wide")
+
+#loading config from streamlit settings
 OPENAI_API_KEY = st.secrets["OPENAI_API_KEY"]
 username = st.secrets["username"]
 password = st.secrets["password"]
