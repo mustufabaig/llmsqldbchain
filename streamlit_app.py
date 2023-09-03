@@ -2,6 +2,8 @@ import streamlit as st
 from langchain import OpenAI, SQLDatabase
 from langchain_experimental.sql import SQLDatabaseChain
 
+from gptcache.adapter.langchain_models import LangChainLLMs
+
 OPENAI_API_KEY = st.secrets["OPENAI_API_KEY"]
 username = st.secrets["username"]
 password = st.secrets["password"]
