@@ -48,4 +48,4 @@ if question:
         with st.chat_message("assistant"):
             st.write("here is what I have found...")
             #st.info(answer);
-            st.code(answer["intermediate_steps"], language="javascript", line_numbers=True)
+            st.code(answer["intermediate_steps"], language="json", line_numbers=True)
