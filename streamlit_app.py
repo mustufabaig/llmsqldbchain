@@ -1,4 +1,6 @@
 import streamlit as st
+import json
+
 from langchain import OpenAI, SQLDatabase
 from langchain_experimental.sql import SQLDatabaseChain
 from langchain.prompts.prompt import PromptTemplate
@@ -48,4 +50,5 @@ if question:
         with st.chat_message("assistant"):
             st.write("here is what I have found...")
             #st.info(answer);
-            st.code(answer["intermediate_steps"], language="json", line_numbers=True)
+            pretty_json = json.dump(answer["intermediate_steps"], indent=4)
+            st.code(pretty_json, language="json", line_numbers=True)
