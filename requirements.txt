@@ -1,3 +1,4 @@
+gptcache
 snowflake-snowpark-python
 snowflake-snowpark-python[pandas]
 snowflake-sqlalchemy
