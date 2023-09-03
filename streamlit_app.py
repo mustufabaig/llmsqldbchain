@@ -38,7 +38,7 @@ PROMPT = PromptTemplate(
     input_variables=["input", "table_info", "dialect"], template=_DEFAULT_TEMPLATE
 )
 
-db_chain = SQLDatabaseChain(llm=llm, database=db, prompt=PROMPT, verbose=True, use_query_checker=True, top_k=3)
+db_chain = SQLDatabaseChain(llm=llm, database=db, prompt=PROMPT, verbose=True, return_intermediate_steps=True)
 
 question = st.chat_input("How can I help you?")
 if question:
@@ -47,3 +47,4 @@ if question:
         with st.chat_message("assistant"):
             st.write("here is what I have found...")
             st.info(answer);
+            st.info(answer["intermediate_steps"])
