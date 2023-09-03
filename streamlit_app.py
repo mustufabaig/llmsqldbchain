@@ -19,7 +19,7 @@ llm = OpenAI(temperature=0, verbose=True)
 db_chain = SQLDatabaseChain(llm=llm, database=db, verbose=True)
 
 question = st.chat_input("How can I help you?")
-if prompt:
+if question:
     with st.spinner('Looking for answers...'):
         answer = db_chain.run(question)
         with st.chat_message("assistant"):
