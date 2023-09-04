@@ -20,7 +20,7 @@ schema = st.secrets["schema"]
 
 # setup
 snowflake_url = f"snowflake://{username}:{password}@{snowflake_account}/{database}/{schema}?warehouse={warehouse}&role={role}"
-db = SQLDatabase.from_uri(snowflake_url,sample_rows_in_table_info=3, include_tables=['merchant','my_me_benchmark'])
+db = SQLDatabase.from_uri(snowflake_url,sample_rows_in_table_info=3, include_tables=['merchant','my_me_benchmark','my_peer_benchmark'])
 # llm = OpenAI(temperature=0) # using the following code to cache with gptcache
 llm = OpenAI(temperature=0, model_name='gpt-3.5-turbo', verbose=True)
 
