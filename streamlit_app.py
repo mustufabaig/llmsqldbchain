@@ -39,7 +39,7 @@ Only use the following tables:
 
 If someone asks for the table employee, they really mean the merchant table.
 
-Question: {input}"""
+"""
 PROMPT = PromptTemplate(
     input_variables=["input", "table_info", "dialect"], template=_DEFAULT_TEMPLATE
 )
