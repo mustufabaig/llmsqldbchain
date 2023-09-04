@@ -22,7 +22,7 @@ schema = st.secrets["schema"]
 snowflake_url = f"snowflake://{username}:{password}@{snowflake_account}/{database}/{schema}?warehouse={warehouse}&role={role}"
 db = SQLDatabase.from_uri(snowflake_url,sample_rows_in_table_info=3, include_tables=['merchant'])
 # llm = OpenAI(temperature=0) # using the following code to cache with gptcache
-llm = OpenAI(temperature=0, verbose=True)
+llm = OpenAI(temperature=0, model_name='gpt-3.5-turbo', verbose=True)
 
 #prompt template
 _DEFAULT_TEMPLATE = """Given an input question, first create a syntactically correct {dialect} query to run, then look at the results of the query and return the answer.
