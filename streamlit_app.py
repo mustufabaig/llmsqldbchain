@@ -55,4 +55,4 @@ if question:
             st.write("here is what I have found...")
             #st.info(answer);
             pretty_json = json.dumps(answer["intermediate_steps"], indent=4)
-            st.text_area((st.code(pretty_json, language="json", line_numbers=True))
+            st.text_area('', st.code(pretty_json, language="json", line_numbers=True))
