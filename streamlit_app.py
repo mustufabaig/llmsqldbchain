@@ -63,11 +63,7 @@ if question:
             st.write("here is what I have found...")
             #st.info(answer);
             pretty_json = json.dumps(answer["intermediate_steps"], indent=4)
-            st.text_area('1', value=answer["intermediate_steps"][0])
-            st.text_area('2', value=answer["intermediate_steps"][1])
-            st.text_area('3', value=answer["intermediate_steps"][2])
-            st.text_area('4', value=answer["intermediate_steps"][3])
-            st.text_area('5', value=answer["intermediate_steps"][4])
-            st.text_area('6', value=answer["intermediate_steps"][5])
+            st.code('6', value=answer["intermediate_steps"][5])
             #st.code(pretty_json, language="json", line_numbers=True)
-            
+        with st.expander("Click for generated SQL"):
+            st.text_area('2', value=answer["intermediate_steps"][1])
