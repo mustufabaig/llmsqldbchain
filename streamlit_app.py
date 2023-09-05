@@ -63,9 +63,9 @@ if question:
             st.write("here is what I have found...")
             #st.info(answer);
             pretty_json = json.dumps(answer["intermediate_steps"], indent=4)
-            st.text_area(answer["intermediate_steps"][0])
-            st.text_area(answer["intermediate_steps"][1])
-            st.text_area(answer["intermediate_steps"][2])
-            st.text_area(answer["intermediate_steps"][3])
+            st.text_area('', value=answer["intermediate_steps"][0])
+            st.text_area('', value=answer["intermediate_steps"][1])
+            st.text_area('', value=answer["intermediate_steps"][2])
+            st.text_area('', value=answer["intermediate_steps"][3])
             #st.code(pretty_json, language="json", line_numbers=True)
             
