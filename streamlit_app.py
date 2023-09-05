@@ -38,9 +38,7 @@ Only use the following tables:
 {table_info}
 
 If someone asks to compare data with peers then join my_me_benchmark table with my_peer_benchmark table and then compare the measures. Show data in tabular format.
-Always use 
-- parent_aggregate_merchant_id=10000111 
-- industry_description = "Wholesale Clubs"
+Always use parent_aggregate_merchant_id=10000111, industry_description = "Wholesale Clubs"
 Always aggregate the results.
 
 Question: {input}"""
