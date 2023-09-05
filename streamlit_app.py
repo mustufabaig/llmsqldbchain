@@ -5,6 +5,7 @@ from langchain import SQLDatabase
 from langchain.chat_models import ChatOpenAI
 from langchain_experimental.sql import SQLDatabaseChain
 from langchain.prompts.prompt import PromptTemplate
+from langchain import FewShotPromptTemplate
 
 import fewshotprompttemplate
 
