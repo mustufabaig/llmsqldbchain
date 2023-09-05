@@ -6,6 +6,8 @@ from langchain.chat_models import ChatOpenAI
 from langchain_experimental.sql import SQLDatabaseChain
 from langchain.prompts.prompt import PromptTemplate
 
+import fewshotprompttemplate
+
 #setting streamlit properties
 st.set_page_config(layout="wide")
 
@@ -27,7 +29,7 @@ llm = ChatOpenAI(temperature=0, model_name='gpt-3.5-turbo', verbose=True)
 
 #prompt template
 
-db_chain = SQLDatabaseChain(llm=llm, database=db, prompt=PROMPT, verbose=True, top_k=3, use_query_checker=True, return_intermediate_steps=True)
+db_chain = SQLDatabaseChain(llm=llm, database=db, prompt=few_shot_prompt_template, verbose=True, top_k=3, use_query_checker=True, return_intermediate_steps=True)
 
 question = st.chat_input("How can I help you?")
 if question:
