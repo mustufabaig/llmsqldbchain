@@ -12,7 +12,6 @@ WHERE a.parent_aggregate_merchant_id = 10000111 \
       and a.region_description = b.region_description \
 group by a.industry_description, a.region_description \
 order by a.industry_description, a.region_description"
-    ]
   }
 ]
 
