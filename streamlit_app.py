@@ -63,6 +63,6 @@ if question:
             st.write("here is what I have found...")
             #st.info(answer);
             pretty_json = json.dumps(answer["intermediate_steps"], indent=4)
-            st.code(pretty_json[2])
+            st.code(answer["intermediate_steps"][2])
             #st.code(pretty_json, language="json", line_numbers=True)
             
