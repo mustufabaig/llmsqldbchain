@@ -1,3 +1,6 @@
+from langchain import FewShotPromptTemplate
+
+# create our examples
 examples = [
   {
     "Question" : "How I compare against my peers in fraud performance?",
@@ -19,4 +22,19 @@ order by a.industry_description, a.region_description",
   }
 ]
 
+# create a example template
+example_template = """
+Question: {query}
+SQLQuery: {SQLQuery}
+SQLResult: {SQLResult}
+"""
+
+# create a prompt example from above template
+example_prompt = PromptTemplate(
+    input_variables=["Question", "SQLQuery", "SQLResult"],
+    template=example_template
+)
+
+prefix = """ """
+suffix = """ """
 
