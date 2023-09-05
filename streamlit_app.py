@@ -7,7 +7,7 @@ from langchain_experimental.sql import SQLDatabaseChain
 from langchain.prompts.prompt import PromptTemplate
 from langchain import FewShotPromptTemplate
 
-import fewshotprompttemplate as fspt
+import fewshotprompttemplate
 
 #setting streamlit properties
 st.set_page_config(layout="wide")
