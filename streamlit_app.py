@@ -37,9 +37,8 @@ Only use the following tables:
 
 {table_info}
 
-If someone asks to compare data then comparative numbers will come from my_peer_benchmark table.
-Always use parent_aggregate_merchant_id=10000111
-Always aggregate
+If someone asks to compare data then comparative numbers will come from my_peer_benchmark table and my numbers will come from my_me_benchmark table.
+Always use parent_aggregate_merchant_id=10000111 and aggregate the results.
 
 Question: {input}"""
 PROMPT = PromptTemplate(
