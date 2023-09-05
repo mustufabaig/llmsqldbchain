@@ -35,6 +35,42 @@ example_prompt = PromptTemplate(
     template=example_template
 )
 
-prefix = """ """
-suffix = """ """
+# now break our previous prompt into a prefix and suffix
+# the prefix is our instructions
+prefix = """Answer the question based on the context below. If the question cannot be answered using the information provided answer with "I don't know". 
+Context: Given an input question, first create a syntactically correct {dialect} query to run, then look at the results of the query and return the answer to the input question. 
+Unless the user specifies in the question a specific number of examples to obtain, query for at most 5 results using the LIMIT clause as per {dialect}. You can order the results to return the most informative data in the database.
+Never query for all columns from a table. You must query only the columns that are needed to answer the question. Wrap each column name in double quotes (") to denote them as delimited identifiers.
+Pay attention to use only the column names you can see in the tables below. Be careful to not query for columns that do not exist. Also, pay attention to which column is in which table.
+Pay attention to use sysdate() function to get the current date, if the question involves "today".
+Always use parent_aggregate_merchant_id=10000111, industry_description = "Wholesale Clubs". 
 
+Use the following format:
+
+Question: "Question here"
+SQLQuery: "SQL Query to run"
+SQLResult: "Result of the SQLQuery"
+Answer: "Final answer here"
+
+Only use the following tables:
+
+{table_info}
+
+If someone asks to compare data with peers then join my_me_benchmark table with my_peer_benchmark table and then compare the measures from both tables.
+If someone mentions "performance" then they really mean "volume".
+
+Here are some examples:
+"""
+
+# and the suffix our user input and output indicator
+suffix = """Question: {input}"""
+
+# now create the few shot prompt template
+few_shot_prompt_template = FewShotPromptTemplate(
+    examples=examples,
+    example_prompt=example_prompt,
+    prefix=prefix,
+    suffix=suffix,
+    input_variables=["input"],
+    example_separator="\n\n"
+)
