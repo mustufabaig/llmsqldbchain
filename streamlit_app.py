@@ -56,10 +56,10 @@ db_chain = SQLDatabaseChain(llm=llm, database=db, prompt=PROMPT, verbose=True, t
 question = st.chat_input("How can I help you?")
 if question:
     with st.spinner('Looking for answers...'):
-        #answer = db_chain.run(question)
-        answer = db_chain(question)
+        answer = db_chain.run(question)
+        #answer = db_chain(question)
         with st.chat_message("assistant"):
             st.write("here is what I have found...")
-            #st.info(answer);
-            pretty_json = json.dumps(answer["intermediate_steps"], indent=4)
-            st.code(pretty_json, language="json", line_numbers=True)
+            st.info(answer);
+            #pretty_json = json.dumps(answer["intermediate_steps"], indent=4)
+            #st.code(pretty_json, language="json", line_numbers=True)
