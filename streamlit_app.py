@@ -37,7 +37,7 @@ Only use the following tables:
 
 {table_info}
 
-If someone asks for the table employee, they really mean the merchant table.
+If someone asks to compare data then comparative numbers will come from my_peer_benchmark table.
 
 Question: {input}"""
 PROMPT = PromptTemplate(
