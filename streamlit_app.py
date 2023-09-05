@@ -7,7 +7,7 @@ from langchain_experimental.sql import SQLDatabaseChain
 from langchain.prompts.prompt import PromptTemplate
 from langchain import FewShotPromptTemplate
 
-import fewshotprompttemplate
+import fewshotprompttemplate as fspt
 
 #setting streamlit properties
 st.set_page_config(layout="wide")
@@ -31,10 +31,10 @@ llm = ChatOpenAI(temperature=0, model_name='gpt-3.5-turbo', verbose=True)
 #prompt template
 # now create the few shot prompt template
 few_shot_prompt_template = FewShotPromptTemplate(
-    examples=examples,
-    example_prompt=example_prompt,
-    prefix=prefix,
-    suffix=suffix,
+    examples=fspt.examples,
+    example_prompt=fspt.example_prompt,
+    prefix=fspt.prefix,
+    suffix=fspt.suffix,
     input_variables=["input", "table_info", "dialect"],
     example_separator="\n\n"
 )
