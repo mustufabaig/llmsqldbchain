@@ -67,5 +67,8 @@ if question:
             st.text_area('', value=answer["intermediate_steps"][1])
             st.text_area('', value=answer["intermediate_steps"][2])
             st.text_area('', value=answer["intermediate_steps"][3])
+            st.text_area('', value=answer["intermediate_steps"][4])
+            st.text_area('', value=answer["intermediate_steps"][5])
+            st.text_area('', value=answer["intermediate_steps"][6])
             #st.code(pretty_json, language="json", line_numbers=True)
             
