@@ -28,6 +28,15 @@ db = SQLDatabase.from_uri(snowflake_url,sample_rows_in_table_info=3, include_tab
 llm = ChatOpenAI(temperature=0, model_name='gpt-3.5-turbo', verbose=True)
 
 #prompt template
+# now create the few shot prompt template
+few_shot_prompt_template = FewShotPromptTemplate(
+    examples=examples,
+    example_prompt=example_prompt,
+    prefix=prefix,
+    suffix=suffix,
+    input_variables=["input", "table_info", "dialect"],
+    example_separator="\n\n"
+)
 
 db_chain = SQLDatabaseChain(llm=llm, database=db, prompt=few_shot_prompt_template, verbose=True, top_k=3, use_query_checker=True, return_intermediate_steps=True)
 
