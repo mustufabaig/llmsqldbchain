@@ -51,16 +51,16 @@ PROMPT = PromptTemplate(
     input_variables=["input", "table_info", "dialect"], template=_DEFAULT_TEMPLATE
 )
 
-db_chain = SQLDatabaseChain(llm=llm, database=db, prompt=PROMPT, verbose=True, top_k=3, use_query_checker=True, return_intermediate_steps=False)
+db_chain = SQLDatabaseChain(llm=llm, database=db, prompt=PROMPT, verbose=True, top_k=3, use_query_checker=True, return_intermediate_steps=True)
 
 question = st.chat_input("How can I help you?")
 if question:
     st.markdown(":question: "+question)
     with st.spinner('Looking for answers...'):
-        answer = db_chain.run(question)
-        #answer = db_chain(question)
+        #answer = db_chain.run(question)
+        answer = db_chain(question)
         with st.chat_message("assistant"):
             st.write("here is what I have found...")
-            st.info(answer);
-            #pretty_json = json.dumps(answer["intermediate_steps"], indent=4)
-            #st.code(pretty_json, language="json", line_numbers=True)
+            #st.info(answer);
+            pretty_json = json.dumps(answer["intermediate_steps"], indent=4)
+            st.code(pretty_json, language="json", line_numbers=True)
