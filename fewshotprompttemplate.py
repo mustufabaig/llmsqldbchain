@@ -11,13 +11,7 @@ WHERE a.parent_aggregate_merchant_id = 10000111 \
       and a.industry_description = b.industry_description \
       and a.region_description = b.region_description \
 group by a.industry_description, a.region_description \
-order by a.industry_description, a.region_description",
-    "SQLResult" : [
-      ('Automotive Fuel', 'ASIA/PACIFIC', 653.85, 26963.5),
-      ('Automotive Fuel', 'CANADA', 59011.8, 2390928.45),
-      ('Automotive Fuel', 'EUROPE', 13815.1, 407002.7),
-      ('Wholesale Clubs', 'MIDDLE EAST/AFRICA', 0, 1765112.2),
-      ('Wholesale Clubs', 'UNITED STATES', 3007841.2, 8445211.55)
+order by a.industry_description, a.region_description"
     ]
   }
 ]
@@ -26,12 +20,11 @@ order by a.industry_description, a.region_description",
 example_template = """
 Question: {Question}
 SQLQuery: {SQLQuery}
-SQLResult: {SQLResult}
 """
 
 # create a prompt example from above template
 example_prompt = PromptTemplate(
-    input_variables=["Question", "SQLQuery", "SQLResult"],
+    input_variables=["Question", "SQLQuery"],
     template=example_template
 )
 
