@@ -1,4 +1,3 @@
-from langchain import FewShotPromptTemplate
 from langchain.prompts.prompt import PromptTemplate
 
 # create our examples
