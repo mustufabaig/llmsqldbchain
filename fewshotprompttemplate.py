@@ -24,7 +24,7 @@ order by a.industry_description, a.region_description",
 
 # create a example template
 example_template = """
-Question: {query}
+Question: {Question}
 SQLQuery: {SQLQuery}
 SQLResult: {SQLResult}
 """
