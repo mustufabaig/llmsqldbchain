@@ -31,7 +31,7 @@ llm = ChatOpenAI(temperature=0, model_name='gpt-3.5-turbo', verbose=True)
 #prompt template
 # now create the few shot prompt template
 few_shot_prompt_template = FewShotPromptTemplate(
-    examples=fspt.examples,
+    examples=fewshotprompttemplate.examples,
     example_prompt=fspt.example_prompt,
     prefix=fspt.prefix,
     suffix=fspt.suffix,
