@@ -59,6 +59,7 @@ if question:
         answer = db_chain.run(question)
         #answer = db_chain(question)
         with st.chat_message("assistant"):
+            st.write("Question: *"+question)
             st.write("here is what I have found...")
             st.info(answer);
             #pretty_json = json.dumps(answer["intermediate_steps"], indent=4)
