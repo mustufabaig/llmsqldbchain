@@ -67,4 +67,4 @@ if question:
             #st.code(pretty_json, language="json", line_numbers=True)
         with st.expander("Click for generated SQL"):
             st.text_area('', value=answer["intermediate_steps"][1])
-            st.markdown('', value=answer["intermediate_steps"][1])
+            st.markdown(answer["intermediate_steps"][1])
