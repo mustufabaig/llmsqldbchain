@@ -3,7 +3,7 @@ from langchain.prompts.prompt import PromptTemplate
 # create our examples
 examples = [
   {
-    "Question" : "How I compare against my peers in fraud performance?",
+    "Question" : "How I compare against my peers in fraud or cross border fraud performance?",
     "SQLQuery" : "SELECT a.industry_description as industry, a.region_description as region, sum(a.fraud_amount_usd) as my_fraud_volume_in_usd, sum(b.fraud_amount_usd) as my_peers_fraud_volume_in_usd \
 FROM my_me_benchmark a \
     JOIN my_peer_benchmark b on a.parent_aggregate_merchant_id = b.parent_aggregate_merchant_id \
