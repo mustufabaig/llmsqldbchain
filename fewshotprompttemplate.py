@@ -16,7 +16,7 @@ examples = [
   {
     "Question" : "How I compare against my peers in fraud or cross border fraud performance?",
     "SQLQuery" : "SELECT DIV0(fraud_amount_usd / first_chargeback_amount_usd) as fraud_to_chargeback_ratio \
-    FROM my_me_benchmark \ 
+    FROM my_me_benchmark \
     WHERE parent_aggregate_merchant_id = 10000111"
   }
 ]
