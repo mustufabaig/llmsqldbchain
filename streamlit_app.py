@@ -14,7 +14,7 @@ st.set_page_config(layout="wide")
 
 def get_db_chain():
     if 'db_chain' not in st.session_state:
-        st.write('dbchain was not in the session')
+        #st.write('dbchain was not in the session')
         #loading config from streamlit settings
         OPENAI_API_KEY = st.secrets["OPENAI_API_KEY"]
         username = st.secrets["username"]
