@@ -36,7 +36,7 @@ example_prompt = PromptTemplate(
 # now break our previous prompt into a prefix and suffix
 # the prefix is our instructions
 prefix = """Answer the question based on the context below. If the question cannot be answered using the information provided answer with "I don't know". 
-Context: Given an input question, first create a syntactically correct {dialect} query to run, do not use quotes in the generated SQL, then look at the results of the query and return the answer to the input question. 
+Context: Given an input question, first create a syntactically correct ANSI SQL query to run, then look at the results of the query and return the answer to the input question. 
 Unless the user specifies in the question a specific number of examples to obtain, query for at most 5 results using the LIMIT clause as per {dialect}. 
 Whenever user ask to calculate ratio then make sure to use DIV0 snowflake function. 
 You can order the results to return the most informative data in the database.
