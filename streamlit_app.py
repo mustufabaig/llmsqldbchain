@@ -18,9 +18,9 @@ def get_db_chain():
         #st.write('dbchain was not in the session')
         #loading config from streamlit settings
         OPENAI_API_KEY = st.secrets["OPENAI_API_KEY"]
-        OPEN_API_BASE = st.secrets["OPEN_API_BASE"]
-        OPEN_API_TYPE = st.secrets["OPEN_API_TYPE"]
-        OPEN_API_VERSION = st.secrets["OPEN_API_VERSION"]
+        OPEN_API_BASE = st.secrets["OPENAI_API_BASE"]
+        OPEN_API_TYPE = st.secrets["OPENAI_API_TYPE"]
+        OPEN_API_VERSION = st.secrets["OPENAI_API_VERSION"]
         DEPLOYMENT_NAME = st.secrets["DEPLOYMENT_NAME"]
         
         username = st.secrets["username"]
