@@ -3,6 +3,7 @@ import json
 
 from langchain import SQLDatabase
 from langchain.chat_models import ChatOpenAI
+from langchain.chat_models import AzureChatOpenAI
 from langchain_experimental.sql import SQLDatabaseChain
 from langchain.prompts.prompt import PromptTemplate
 from langchain import FewShotPromptTemplate
@@ -17,6 +18,11 @@ def get_db_chain():
         #st.write('dbchain was not in the session')
         #loading config from streamlit settings
         OPENAI_API_KEY = st.secrets["OPENAI_API_KEY"]
+        OPEN_API_BASE = st.secrets["OPEN_API_BASE"]
+        OPEN_API_TYPE = st.secrets["OPEN_API_TYPE"]
+        OPEN_API_VERSION = st.secrets["OPEN_API_VERSION"]
+        DEPLOYMENT_NAME = st.secrets["DEPLOYMENT_NAME"]
+        
         username = st.secrets["username"]
         password = st.secrets["password"]
         warehouse = st.secrets["warehouse"]
@@ -28,8 +34,9 @@ def get_db_chain():
         # setup
         snowflake_url = f"snowflake://{username}:{password}@{snowflake_account}/{database}/{schema}?warehouse={warehouse}&role={role}"
         db = SQLDatabase.from_uri(snowflake_url,sample_rows_in_table_info=3, include_tables=['merchant','my_me_benchmark','my_peer_benchmark'])
-        # llm = OpenAI(temperature=0) # using the following code to cache with gptcache
-        llm = ChatOpenAI(temperature=0, model_name='gpt-3.5-turbo', verbose=True)
+        #llm = OpenAI(temperature=0) # using the following code to cache with gptcache
+        #llm = ChatOpenAI(temperature=0, model_name='gpt-3.5-turbo', verbose=True)
+        llm = AzureChatOpenAI(temperature=0, deployment_name=DEPLOYMENT_NAME, model='gpt-4, verbose=True)
         
         #prompt template
         # now create the few shot prompt template
