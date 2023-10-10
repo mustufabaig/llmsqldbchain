@@ -66,7 +66,7 @@ if question:
         answer = db_chain(question)
         with st.chat_message("assistant"):
             st.write("here is what I have found...")
-            #st.info(answer);
+            st.info(answer);
             pretty_json = json.dumps(answer["intermediate_steps"], indent=4)
             st.code(answer["intermediate_steps"][5].replace("Final answer here:",""))
             #st.code(pretty_json, language="json", line_numbers=True)
