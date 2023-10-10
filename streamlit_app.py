@@ -69,6 +69,6 @@ if question:
             #st.info(answer);
             pretty_json = json.dumps(answer["intermediate_steps"], indent=4)
             st.code(answer["intermediate_steps"][5].replace("Final answer here:",""))
-            st.code(pretty_json, language="json", line_numbers=True)
+            #st.code(pretty_json, language="json", line_numbers=True)
         with st.expander("Click for generated SQL"):
             st.text(answer["intermediate_steps"][1])
