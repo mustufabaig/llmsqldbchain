@@ -76,4 +76,4 @@ if question:
         except Exception as error:
             with st.chat_message("assistant"):
                 st.write("I don't think I can answer your question - try a different question.")
-                st.write(error.message)
+                st.write(dir(error))
