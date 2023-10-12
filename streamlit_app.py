@@ -63,12 +63,19 @@ if question:
     st.markdown(":question: "+question)
     with st.spinner('Looking for answers...'):
         #answer = db_chain.run(question)
-        answer = db_chain(question)
-        with st.chat_message("assistant"):
-            st.write("here is what I have found...")
-            #st.info(answer);
-            pretty_json = json.dumps(answer["intermediate_steps"], indent=4)
-            st.code(answer["intermediate_steps"][5].replace("Final answer here:",""))
-            #st.code(pretty_json, language="json", line_numbers=True)
-        with st.expander("Click for generated SQL"):
-            st.text(answer["intermediate_steps"][1])
+        try:
+            answer = db_chain(question)
+            with st.chat_message("assistant"):
+                st.write("here is what I have found...")
+                #st.info(answer);
+                pretty_json = json.dumps(answer["intermediate_steps"], indent=4)
+                st.code(answer["intermediate_steps"][5].replace("Final answer here:",""))
+                #st.code(pretty_json, language="json", line_numbers=True)
+            with st.expander("Click for generated SQL"):
+                st.text(answer["intermediate_steps"][1])
+        except Exception as error:
+            with st.chat_message("assistant"):
+                st.write("I don't think I can get what you are looking for")
+                st.write(error)
+                with st.expander("Click for more info"):
+                    st.code(json.dumps(answer, indent=4))
