@@ -75,7 +75,5 @@ if question:
                 st.text(answer["intermediate_steps"][1])
         except Exception as error:
             with st.chat_message("assistant"):
-                st.write("I don't think I can get what you are looking for")
+                st.write("I don't think I can answer your question - try a different question.")
                 st.write(error)
-            with st.expander("Click for more info"):
-                st.code(json.dumps(answer, indent=4))
