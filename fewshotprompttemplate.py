@@ -58,7 +58,7 @@ Only use the following tables:
 {table_info}
 
 If someone asks to compare data with peers then join my_me_benchmark table with my_peer_benchmark table and then compare the measures from both tables.
-If someone mentions "performance" then they really mean "volume".
+If someone mentions "performance" then they really mean "volume". Format "volume" with currency format.
 If someone ask for "my chargeback" or "my Fraud" or "my declined" then use table my_me_benchmark.
 Here are some examples:
 """
