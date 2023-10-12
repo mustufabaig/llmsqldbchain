@@ -77,5 +77,5 @@ if question:
             with st.chat_message("assistant"):
                 st.write("I don't think I can get what you are looking for")
                 st.write(error)
-                with st.expander("Click for more info"):
-                    st.code(json.dumps(answer, indent=4))
+            with st.expander("Click for more info"):
+                st.code(json.dumps(answer, indent=4))
