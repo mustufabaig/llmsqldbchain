@@ -21,7 +21,7 @@ def get_db_chain():
         OPENAI_API_BASE = st.secrets["OPENAI_API_BASE"]
         OPENAI_API_TYPE = st.secrets["OPENAI_API_TYPE"]
         OPENAI_API_VERSION = st.secrets["OPENAI_API_VERSION"]
-        OPENAI_CHAT_MODEL = st.secrets["OPENAI_CHAT_MODEL35"]
+        OPENAI_CHAT_MODEL = st.secrets["OPENAI_CHAT_MODEL_35"]
         MODEL_DEPLOYMENT_NAME = st.secrets["MODEL_DEPLOYMENT_NAME"]
         
         username = st.secrets["username"]
