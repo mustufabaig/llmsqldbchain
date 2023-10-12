@@ -21,7 +21,8 @@ def get_db_chain():
         OPENAI_API_BASE = st.secrets["OPENAI_API_BASE"]
         OPENAI_API_TYPE = st.secrets["OPENAI_API_TYPE"]
         OPENAI_API_VERSION = st.secrets["OPENAI_API_VERSION"]
-        OPENAI_CHAT_MODEL = st.secrets["OPENAI_CHAT_MODEL"]
+        OPENAI_CHAT_MODEL = st.secrets["OPENAI_CHAT_MODEL35"]
+        MODEL_DEPLOYMENT_NAME = st.secrets["MODEL_DEPLOYMENT_NAME"]
         
         username = st.secrets["username"]
         password = st.secrets["password"]
@@ -36,8 +37,7 @@ def get_db_chain():
         db = SQLDatabase.from_uri(snowflake_url,sample_rows_in_table_info=3, include_tables=['merchant','my_me_benchmark','my_peer_benchmark'])
         #llm = OpenAI(temperature=0) # using the following code to cache with gptcache
         #llm = ChatOpenAI(temperature=0, model_name='gpt-3.5-turbo', verbose=True)
-        #model='gpt-4'
-        llm = AzureChatOpenAI(temperature=0, deployment_name=OPENAI_CHAT_MODEL, model='gpt-4', verbose=True)
+        llm = AzureChatOpenAI(temperature=0, deployment_name=MODEL_DEPLOYMENT_NAME, model=OPENAI_CHAT_MODEL, verbose=True)
         
         #prompt template
         # now create the few shot prompt template
