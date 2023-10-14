@@ -74,9 +74,8 @@ if question:
                 #st.code(pretty_json, language="json", line_numbers=True)
             with st.expander("Click for generated SQL"):
                 #st.text(answer["intermediate_steps"][1])
-                st.text(answer["intermediate_steps"])
+                st.code(vars(answer))
         except Exception as error:
             with st.chat_message("assistant"):
                 st.write("I don't think I can answer your question - try a different question.")
-                st.write(error.intermediate_steps)
                 st.write(vars(error))
