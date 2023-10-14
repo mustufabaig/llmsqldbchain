@@ -78,5 +78,6 @@ if question:
         except Exception as error:
             with st.chat_message("assistant"):
                 st.write("I don't think I can answer your question - try a different question.")
-                #st.write(vars(error.intermediate_steps[1]))
-                st.text(json.dumps(error.intermediate_steps[1], indent=4))
+                 with st.expander("Click here for more details"):
+                    #st.write(vars(error))
+                    st.text(json.dumps(error.intermediate_steps[1], indent=4))
