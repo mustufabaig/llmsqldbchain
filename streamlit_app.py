@@ -74,7 +74,7 @@ if question:
                 #st.code(pretty_json, language="json", line_numbers=True)
             with st.expander("Click for generated SQL"):
                 #st.text(answer["intermediate_steps"][1])
-                st.text(json.dumps(answer, indent=4))
+                st.text(json.dumps(answer["intermediate_steps"], indent=4))
         except Exception as error:
             with st.chat_message("assistant"):
                 st.write("I don't think I can answer your question - try a different question.")
