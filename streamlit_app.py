@@ -1,6 +1,7 @@
 import streamlit as st
 import json
 
+from pprint import pprint
 from langchain import SQLDatabase
 from langchain.chat_models import ChatOpenAI
 from langchain.chat_models import AzureChatOpenAI
@@ -79,4 +80,4 @@ if question:
                 st.write(error._message)
                 st.write(error._sql_message)
                 st.write(error.detail)
-                st.write(dir(error))
+                st.write(vars(error))
