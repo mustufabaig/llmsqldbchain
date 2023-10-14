@@ -78,5 +78,5 @@ if question:
         except Exception as error:
             with st.chat_message("assistant"):
                 st.write("I don't think I can answer your question - try a different question.")
-                st.write(vars(error["intermediate_steps"]))
+                st.write(vars(error.intermediate_steps))
                 st.write(vars(error))
