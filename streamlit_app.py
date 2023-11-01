@@ -14,8 +14,8 @@ import fewshotprompttemplate
 #setting streamlit properties
 st.set_page_config(layout="wide")
 st.header("Merchant Benchmarks", divider='rainbow')
-st.text("show me the names of merchants with their decline rate in united states region")
-st.markdown("what is the total cleared usd amount in middle east region?")
+st.caption("show me the names of merchants with their decline rate in united states region")
+st.caption("what is the total cleared usd amount in middle east region?")
 st.caption("what is the highest and lowest fraud amount airline industry?")
 
 def get_db_chain():
