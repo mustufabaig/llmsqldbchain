@@ -47,7 +47,6 @@ def get_db_chain():
         
         #prompt template
         # now create the few shot prompt template
-        ###
         CUSTOM_PROMPT = FewShotPromptTemplate(
             examples=fewshotprompttemplate.examples,
             example_prompt=fewshotprompttemplate.example_prompt,
@@ -61,6 +60,7 @@ def get_db_chain():
             input_variables=["table_info", "dialect"],
             template=prompt.SYSTEM_MESSAGE,
         )
+        ###
         st.write(CUSTOM_PROMPT)
         
         local_db_chain = SQLDatabaseChain(llm=llm, database=db, prompt=CUSTOM_PROMPT, verbose=True, top_k=3, use_query_checker=True, return_intermediate_steps=True)
