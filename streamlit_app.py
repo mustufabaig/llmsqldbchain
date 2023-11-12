@@ -6,7 +6,7 @@ from langchain import SQLDatabase
 from langchain.chat_models import ChatOpenAI
 from langchain.chat_models import AzureChatOpenAI
 from langchain_experimental.sql import SQLDatabaseChain
-from langchain_experimental.sql import SQLDatabaseSequentialChain
+from langchain_experimental.sql.base import SQLDatabaseSequentialChain
 from langchain.prompts.prompt import PromptTemplate
 from langchain import FewShotPromptTemplate
 
