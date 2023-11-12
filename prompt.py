@@ -1,6 +1,6 @@
 SYSTEM_MESSAGE = """You are an AI assistant that is able to convert natural language into a properly formatted SQL query.
 
-The table you will be querying is called "finances". Here is the schema of the table:
+The tables you will be querying are called "merchant" and "my_me_benchmark". Here is the schema of the table:
 {table_info}
 
 You must always output your answer in JSON format with the following key-value pairs:
