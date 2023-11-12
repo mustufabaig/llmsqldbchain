@@ -54,7 +54,7 @@ def get_db_chain():
             input_variables=["input", "table_info", "dialect"],
             example_separator="\n\n"
         )
-        
+        st.code(few_shot_prompt_template)
         local_db_chain = SQLDatabaseChain(llm=llm, database=db, prompt=few_shot_prompt_template, verbose=True, top_k=3, use_query_checker=True, return_intermediate_steps=True)
         st.session_state['db_chain'] = local_db_chain
         return local_db_chain
@@ -72,10 +72,11 @@ if question:
             answer = db_chain(question)
             with st.chat_message("assistant"):
                 st.write("here is what I have found...")
-                st.info(answer);
                 pretty_json = json.dumps(answer["intermediate_steps"], indent=4)
                 st.code(answer["intermediate_steps"][5].replace("Final answer here:",""))
-                #st.code(pretty_json, language="json", line_numbers=True)
+            with st.expander("RAW"):
+                pretty_json = json.dumps(answer, indent=10)
+                st.code(pretty_json, language="json", line_numbers=True)
             with st.expander("Click here for details"):
                 #st.text(answer["intermediate_steps"][1])
                 st.text(json.dumps(answer["intermediate_steps"], indent=4))
