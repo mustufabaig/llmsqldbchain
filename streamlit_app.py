@@ -64,7 +64,7 @@ def get_db_chain():
         """
         #st.write(CUSTOM_PROMPT)
         
-        local_db_chain = SQLDatabaseSequentialChain(llm=llm, database=db, prompt=CUSTOM_PROMPT, verbose=True, top_k=3, use_query_checker=True, return_intermediate_steps=True)
+        local_db_chain = SQLDatabaseChain(llm=llm, database=db, prompt=CUSTOM_PROMPT, verbose=True, top_k=3, use_query_checker=True, return_intermediate_steps=True)
         st.session_state['db_chain'] = local_db_chain
         return local_db_chain
         
