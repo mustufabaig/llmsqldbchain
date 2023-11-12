@@ -92,5 +92,5 @@ if question:
             with st.chat_message("assistant"):
                 st.write("I don't think I can answer your question - try a different question.")
                 with st.expander("Click here for more details"):
-                    #st.write(vars(error))
-                    st.text(json.dumps(error, indent=4))
+                    st.write(vars(error))
+                    st.text(json.dumps(error.intermediate_steps, indent=4))
