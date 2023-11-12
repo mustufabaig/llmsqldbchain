@@ -19,7 +19,7 @@ st.header("Merchant Benchmarks", divider='rainbow')
 #st.caption("what is the highest and lowest fraud amount airline industry?")
 
 def get_db_chain():
-    if 'db_chain' not in st.session_state:
+    if 'db_chai' not in st.session_state:
         #st.write('dbchain was not in the session')
         #loading config from streamlit settings
         OPENAI_API_KEY = st.secrets["OPENAI_API_KEY"]
