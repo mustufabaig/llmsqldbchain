@@ -61,7 +61,7 @@ def get_db_chain():
             input_variables=["table_info"],
             template=prompt.SYSTEM_MESSAGE,
         )
-        with st.chat_message("prompt"):
+        with st.chat_message("SET PROMPT"):
             st.code(CUSTOM_PROMPT)
         
         local_db_chain = SQLDatabaseChain(llm=llm, database=db, prompt=CUSTOM_PROMPT, verbose=True, top_k=3, use_query_checker=True, return_intermediate_steps=True)
