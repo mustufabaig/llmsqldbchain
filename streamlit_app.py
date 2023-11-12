@@ -10,6 +10,7 @@ from langchain.prompts.prompt import PromptTemplate
 from langchain import FewShotPromptTemplate
 
 import fewshotprompttemplate
+import prompt
 
 #setting streamlit properties
 st.set_page_config(layout="wide")
@@ -46,7 +47,8 @@ def get_db_chain():
         
         #prompt template
         # now create the few shot prompt template
-        few_shot_prompt_template = FewShotPromptTemplate(
+        ###
+        CUSTOM_PROMPT = FewShotPromptTemplate(
             examples=fewshotprompttemplate.examples,
             example_prompt=fewshotprompttemplate.example_prompt,
             prefix=fewshotprompttemplate.prefix,
@@ -54,9 +56,15 @@ def get_db_chain():
             input_variables=["input", "table_info", "dialect"],
             example_separator="\n\n"
         )
+        ###
+        CUSTOM_PROMPT = PromptTemplate(
+            input_variables=["table_info"],
+            template=prompt.SYSTEM_MESSAGE,
+        )
         with st.chat_message("prompt"):
-            st.code(few_shot_prompt_template)
-        local_db_chain = SQLDatabaseChain(llm=llm, database=db, prompt=few_shot_prompt_template, verbose=True, top_k=3, use_query_checker=True, return_intermediate_steps=True)
+            st.code(CUSTOM_PROMPT)
+        
+        local_db_chain = SQLDatabaseChain(llm=llm, database=db, prompt=CUSTOM_PROMPT, verbose=True, top_k=3, use_query_checker=True, return_intermediate_steps=True)
         st.session_state['db_chain'] = local_db_chain
         return local_db_chain
         
