@@ -78,13 +78,13 @@ if question:
         #answer = db_chain.run(question)
         try:
             answer = db_chain(question)
+            with st.expander("RAW"):
+                pretty_json = json.dumps(answer, indent=10)
+                st.code(pretty_json, language="json", line_numbers=True)
             with st.chat_message("assistant"):
                 st.write("here is what I have found...")
                 pretty_json = json.dumps(answer["intermediate_steps"], indent=4)
                 st.code(answer["intermediate_steps"][5].replace("Final answer here:",""))
-            with st.expander("RAW"):
-                pretty_json = json.dumps(answer, indent=10)
-                st.code(pretty_json, language="json", line_numbers=True)
             with st.expander("Click here for details"):
                 #st.text(answer["intermediate_steps"][1])
                 st.text(json.dumps(answer["intermediate_steps"], indent=4))
