@@ -6,6 +6,7 @@ from langchain import SQLDatabase
 from langchain.chat_models import ChatOpenAI
 from langchain.chat_models import AzureChatOpenAI
 from langchain_experimental.sql import SQLDatabaseChain
+from langchain_experimental.sql import SQLDatabaseSequentialChain
 from langchain.prompts.prompt import PromptTemplate
 from langchain import FewShotPromptTemplate
 
@@ -61,7 +62,7 @@ def get_db_chain():
             template=prompt.SYSTEM_MESSAGE,
         )
         """
-        st.write(CUSTOM_PROMPT)
+        #st.write(CUSTOM_PROMPT)
         
         local_db_chain = SQLDatabaseSequentialChain(llm=llm, database=db, prompt=CUSTOM_PROMPT, verbose=True, top_k=3, use_query_checker=True, return_intermediate_steps=True)
         st.session_state['db_chain'] = local_db_chain
