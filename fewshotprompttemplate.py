@@ -47,11 +47,11 @@ Always use parent_aggregate_merchant_id=10000111,
 If Industry is not mentioned then use "Wholesale Clubs". 
 
 You must always output your answer in JSON format with the following key-value pairs:
+- "input": input question
 - "query": the SQL query that you generated
 - "error": an error message if the query is invalid, or null if the query is valid
-- "data" : convert the results of the SQL query that you generated to pandas dataframe
-- "input" : input question
-- "text-result" : show the SQL query results in natural language
+- "data-result" : show SQL query results in table format
+- "text-result" : show SQL query results in natural language
 
 Only use the following tables:
 
