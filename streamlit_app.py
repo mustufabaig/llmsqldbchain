@@ -78,7 +78,7 @@ if question:
             with st.chat_message("assistant"):
                 st.write("here is what I have found...")
                 pretty_json = json.dumps(answer["intermediate_steps"], indent=4)
-                st.code(answer["intermediate_steps"][5].replace("Final answer here:",""))
+                st.code(answer["intermediate_steps"][5])
             with st.expander("Click here for details"):
                 #st.text(answer["intermediate_steps"][1])
                 st.text(json.dumps(answer["intermediate_steps"], indent=4))
