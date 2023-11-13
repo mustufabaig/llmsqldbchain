@@ -8,3 +8,4 @@ langchain-experimental
 tiktoken
 streamlit-awesome-table
 pandas
+pandas.io.json
