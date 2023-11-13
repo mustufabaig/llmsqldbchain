@@ -46,12 +46,11 @@ Pay attention to use sysdate() function to get the current date, if the question
 Always use parent_aggregate_merchant_id=10000111, 
 If Industry is not mentioned then use "Wholesale Clubs". 
 
-Use the following format:
-
-Question: "Question here"
-SQLQuery: "SQL Query to run"
-SQLResult: "Result of the SQLQuery"
-Answer: "Final answer here"
+You must always output your answer in JSON format with the following key-value pairs:
+- "query": the SQL query that you generated
+- "error": an error message if the query is invalid, or null if the query is valid
+- "formatted-result" : show the SQL query results in table format
+- "text-result" : show the SQL query results in natural language
 
 Only use the following tables:
 
