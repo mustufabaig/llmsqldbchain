@@ -7,3 +7,4 @@ openai
 langchain-experimental
 tiktoken
 streamlit-awesome-table
+pandas
