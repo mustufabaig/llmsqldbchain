@@ -10,6 +10,9 @@ from langchain_experimental.sql.base import SQLDatabaseSequentialChain
 from langchain.prompts.prompt import PromptTemplate
 from langchain import FewShotPromptTemplate
 
+import pandas as pd
+from awesome_table import AwesomeTable
+
 import fewshotprompttemplate
 import prompt
 
@@ -79,6 +82,8 @@ if question:
                 st.write("here is what I have found...")
                 pretty_json = json.dumps(answer["intermediate_steps"], indent=4)
                 st.code(answer["intermediate_steps"][5])
+                jdata = answer["intermediate_steps"][5]
+                AwesomeTable(pd.json_normalize(jdata["text-data"]))
             with st.expander("Click here for details"):
                 #st.text(answer["intermediate_steps"][1])
                 st.text(json.dumps(answer["intermediate_steps"], indent=4))
