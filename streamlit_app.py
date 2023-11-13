@@ -56,13 +56,6 @@ def get_db_chain():
             input_variables=["input", "table_info", "dialect"],
             example_separator="\n\n"
         )
-        """
-        CUSTOM_PROMPT = PromptTemplate(
-            input_variables=["table_info", "dialect"],
-            template=prompt.SYSTEM_MESSAGE,
-        )
-        """
-        #st.write(CUSTOM_PROMPT)
         
         local_db_chain = SQLDatabaseChain(llm=llm, database=db, prompt=CUSTOM_PROMPT, verbose=True, top_k=3, use_query_checker=True, return_intermediate_steps=True)
         st.session_state['db_chain'] = local_db_chain
