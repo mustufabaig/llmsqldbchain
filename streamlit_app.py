@@ -77,7 +77,8 @@ if question:
                 jdata = answer["intermediate_steps"][5]
                 jobj = json.loads(jdata)
                 df = pd.json_normalize(jobj["data-result"])
-                st.code(df)
+                st.write(df)
+                st.write(df.plot())
             with st.expander("Click here for details"):
                 #st.text(answer["intermediate_steps"][1])
                 st.text(json.dumps(answer["intermediate_steps"], indent=4))
