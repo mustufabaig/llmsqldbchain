@@ -49,7 +49,7 @@ If Industry is not mentioned then use "Wholesale Clubs".
 You must always output your answer in JSON format with the following key-value pairs:
 - "query": the SQL query that you generated
 - "error": an error message if the query is invalid, or null if the query is valid
-- "formatted-result" : show the SQL query results in table format
+- "formatted-result" : show the SQL query results as panda dataframe
 - "text-result" : show the SQL query results in natural language
 
 Only use the following tables:
