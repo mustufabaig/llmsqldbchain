@@ -15,6 +15,8 @@ import pandas as pd
 import fewshotprompttemplate
 import prompt
 
+st.set_page_config(layout="wide")
+
 def get_db_chain():
     if 'db_chai' not in st.session_state:
         #st.write('dbchain was not in the session')
