@@ -77,6 +77,7 @@ if question:
                 jdata = answer["intermediate_steps"][5]
                 jobj = json.loads(jdata)
                 df = pd.json_normalize(jobj["data-result"])
+                st.write(jobj["text-result"])
                 st.write(df)
                 st.line_chart(df)
                 st.bar_chart(df)
