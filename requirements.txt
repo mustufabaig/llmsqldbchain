@@ -8,3 +8,4 @@ langchain-experimental
 tiktoken
 pandas
 streamlit-pandas-profiling
+pandas-profiling
