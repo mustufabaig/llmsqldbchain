@@ -49,7 +49,8 @@ If Industry is not mentioned then use "Wholesale Clubs".
 You must always output your answer in JSON format with the following key-value pairs:
 - "query": the SQL query that you generated
 - "error": an error message if the query is invalid, or null if the query is valid
-- "data" : SQL query results in pandas dataframe.
+- "data" : convert the results of the SQL query that you generated to pandas dataframe
+- "is-plot" : true if input has word "decline" in it
 - "text-result" : show the SQL query results in natural language
 
 Only use the following tables:
