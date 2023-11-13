@@ -11,17 +11,12 @@ from langchain.prompts.prompt import PromptTemplate
 from langchain import FewShotPromptTemplate
 
 import pandas as pd
-from awesome_table import AwesomeTable
+import pandas_profiling
+
+from streamlit_pandas_profiling import st_profile_report
 
 import fewshotprompttemplate
 import prompt
-
-#setting streamlit properties
-st.set_page_config(layout="wide")
-#st.header("Merchant Benchmarks", divider='rainbow')
-#st.caption("show me the names of merchants with their decline rate in united states region")
-#st.caption("what is the total cleared usd amount in middle east region?")
-#st.caption("what is the highest and lowest fraud amount airline industry?")
 
 def get_db_chain():
     if 'db_chai' not in st.session_state:
@@ -83,7 +78,9 @@ if question:
                 pretty_json = json.dumps(answer["intermediate_steps"], indent=4)
                 st.code(answer["intermediate_steps"][5])
                 jdata = answer["intermediate_steps"][5]
-                AwesomeTable(pd.json_normalize(jdata["data-result"]))
+                df = pd.json_normalize(jdata["data-result"])
+                pr = df.profile_report()
+                st_profile_report(pr)
             with st.expander("Click here for details"):
                 #st.text(answer["intermediate_steps"][1])
                 st.text(json.dumps(answer["intermediate_steps"], indent=4))
