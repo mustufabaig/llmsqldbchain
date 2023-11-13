@@ -78,7 +78,8 @@ if question:
                 jobj = json.loads(jdata)
                 df = pd.json_normalize(jobj["data-result"])
                 st.write(df)
-                df.plot(kind="bar")
+                st.line_chart(df)
+                st.bar_chart(df)
             with st.expander("Click here for details"):
                 #st.text(answer["intermediate_steps"][1])
                 st.text(json.dumps(answer["intermediate_steps"], indent=4))
