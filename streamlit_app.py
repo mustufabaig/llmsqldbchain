@@ -11,7 +11,6 @@ from langchain.prompts.prompt import PromptTemplate
 from langchain import FewShotPromptTemplate
 
 import pandas as pd
-import pandas_profiling
 
 import fewshotprompttemplate
 import prompt
@@ -77,8 +76,6 @@ if question:
                 st.code(answer["intermediate_steps"][5])
                 jdata = answer["intermediate_steps"][5]
                 df = pd.json_normalize(jdata["data-result"])
-                pr = df.profile_report()
-                st_profile_report(pr)
             with st.expander("Click here for details"):
                 #st.text(answer["intermediate_steps"][1])
                 st.text(json.dumps(answer["intermediate_steps"], indent=4))
