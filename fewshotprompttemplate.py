@@ -50,7 +50,7 @@ You must always output your answer in JSON format with the following key-value p
 - "input": input question
 - "query": the SQL query that you generated
 - "error": an error message if the query is invalid, or null if the query is valid
-- "data-result" : SQL query results
+- "data-result" : SQL query results with column names in capitals
 - "text-result" : show SQL query results in natural language
 
 Only use the following tables:
